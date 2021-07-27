@@ -1,0 +1,50 @@
+;; -*- mode: beancount; coding: utf-8; fill-column: 400; -*-
+option "title" "Time Tracking Ledger"
+option "operating_currency" "EUR"
+option "booking_method" "FIFO"
+
+* Commodities
+
+2002-01-01 commodity EUR
+  export: "CASH"
+  name: "Euro"
+
+1792-01-01 commodity USD
+  name: "US Dollar"
+
+1986-02-22 commodity VACHR
+  export: "IGNORE"
+  name: "Employer Vacation Hours"
+
+1986-02-22 commodity WKHR
+  export: "IGNORE"
+  name: "Employer Work Hours"
+
+
+* Equity Accounts
+
+1986-02-22 open Equity:Opening-Balances
+1986-02-22 open Equity:In-Flight
+1986-02-22 open Equity:Inaccuracies
+
+2021-02-01 open Income:DE:Employer:Salary                 EUR
+2021-02-01 open Income:DE:Employer:Vacation               VACHR
+2021-02-01 open Assets:DE:Employer:Work                   WKHR
+2021-02-01 open Assets:DE:Employer:Work:Project-One       WKHR
+2021-02-01 open Assets:DE:Employer:Vacation               VACHR
+
+1986-02-22 open Income:Work                               WKHR
+1986-02-22 open Expenses:Vacation                         VACHR
+1986-02-22 open Expenses:Other
+
+2021-07-25 *
+  Assets:DE:Employer:Work  6.028 WKHR
+  Income:Work
+
+2021-07-26 *
+  Assets:DE:Employer:Work:Project-One  7.010 WKHR
+  Income:Work
+
+2021-07-27 *
+  Assets:DE:Employer:Work  7.400 WKHR
+  Income:Work

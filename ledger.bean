@@ -17,7 +17,6 @@ option "booking_method" "FIFO"
   name: "Employer Vacation Hours"
 
 1986-02-22 commodity WKHR
-  export: "IGNORE"
   name: "Employer Work Hours"
 
 
@@ -26,6 +25,8 @@ option "booking_method" "FIFO"
 1986-02-22 open Equity:Opening-Balances
 1986-02-22 open Equity:In-Flight
 1986-02-22 open Equity:Inaccuracies
+
+2021-02-01 open Assets:DE:Bank:Checking                   EUR
 
 2021-02-01 open Income:DE:Employer:Salary                 EUR
 2021-02-01 open Income:DE:Employer:Vacation               VACHR
@@ -37,20 +38,27 @@ option "booking_method" "FIFO"
 1986-02-22 open Expenses:Vacation                         VACHR
 1986-02-22 open Expenses:Other
 
-* My hourly rate
-
-2021-02-01 price WKHR 100.00 EUR
-
 * Work Entries
 
 2021-07-25 *
-  Assets:DE:Employer:Work  6.028 WKHR
+  Assets:DE:Employer:Work                       6.000 WKHR
   Income:Work
 
 2021-07-26 *
-  Assets:DE:Employer:Work:Project-One  7.010 WKHR
+  Assets:DE:Employer:Work:Project-One           7.000 WKHR
   Income:Work
 
 2021-07-27 *
-  Assets:DE:Employer:Work  7.400 WKHR
+  Assets:DE:Employer:Work                       8.000 WKHR
+  Income:Work
+
+2021-07-28 * "Employer" "Invoice july"
+  Assets:DE:Bank:Checking                    2100.00 EUR
+  Assets:DE:Employer:Work                     -14.000 WKHR @ 100 EUR
+  Assets:DE:Employer:Work:Project-One          -7.000 WKHR @ 100 EUR
+
+2021-07-29 balance Assets:DE:Employer:Work      0.00 WKHR
+
+2021-08-10 *
+  Assets:DE:Employer:Work                       8.000 WKHR
   Income:Work

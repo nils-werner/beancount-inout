@@ -26,6 +26,7 @@ option "booking_method" "FIFO"
 1986-02-22 open Equity:In-Flight
 1986-02-22 open Equity:Inaccuracies
 
+2021-02-01 open Assets:AccountsReceivable
 2021-02-01 open Assets:DE:Bank:Checking                   EUR
 
 2021-02-01 open Income:DE:Employer:Salary                 EUR
@@ -53,7 +54,7 @@ option "booking_method" "FIFO"
   Income:Work
 
 2021-07-28 * "Employer" "Invoice july"
-  Assets:DE:Bank:Checking                    2100.00 EUR
+  Assets:AccountsReceivable                  2100.00 EUR
   Assets:DE:Employer:Work                     -14.000 WKHR @ 100 EUR
   Assets:DE:Employer:Work:Project-One          -7.000 WKHR @ 100 EUR
 
@@ -62,3 +63,7 @@ option "booking_method" "FIFO"
 2021-08-10 *
   Assets:DE:Employer:Work                       8.000 WKHR
   Income:Work
+
+2021-08-23 * "Employer" "Invoice Paid"
+  Assets:DE:Bank:Checking                    2100.00 EUR
+  Assets:AccountsReceivable
